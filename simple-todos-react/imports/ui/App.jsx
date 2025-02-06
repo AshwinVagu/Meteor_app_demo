@@ -54,14 +54,33 @@ export const App = () => {
 
         const jsonResponse = await response.json();
         console.log("Access Token:", jsonResponse.access_token);
-        Meteor.call("getPatient", "731f8839-a034-4744-93a3-1b54b1a81c42", jsonResponse.access_token, (error, result) => {
+      //   Meteor.call("getPatient", "3dbeda5f-669e-4872-b862-797bf01da1fd", jsonResponse.access_token, (error, result) => {
           
-          if (error) {
-              console.log(error.reason);
-          } else {
-              console.log(result);
-          }
-      });
+      //     if (error) {
+      //         console.log(error.reason);
+      //     } else {
+      //         console.log(result);
+      //     }
+      // });
+
+    //   Meteor.call("addPatient", jsonResponse.access_token, (error, result) => {
+          
+    //     if (error) {
+    //         console.log(error.reason);
+    //     } else {
+    //         console.log(result);
+    //     }
+    // });
+
+
+         Meteor.call("listPatients", jsonResponse.access_token, (error, result) => {
+          
+        if (error) {
+            console.log(error.reason);
+        } else {
+            console.log(result);
+        }
+    });
         
       } catch (error) {
         console.error("Error fetching Keycloak token:", error.message);

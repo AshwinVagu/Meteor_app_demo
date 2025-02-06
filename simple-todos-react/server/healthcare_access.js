@@ -2,11 +2,13 @@ import { GoogleAuth } from 'google-auth-library';
 // import { Healthcare } from '@googleapis/healthcare'; // Import the Healthcare library
 import { google } from 'googleapis';
 
-   const keyFilePath = './key.json'; // Path to the keyfile
+  //  const keyFilePath = './key.json'; // Path to the keyfile
+  const credentials = {}
+  
 
   const auth = new GoogleAuth({
-    keyFile: keyFilePath,
-    scopes: ['https://www.googleapis.com/auth/healthcare.fhir'],
+    credentials: credentials,
+    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
   });
   
 
